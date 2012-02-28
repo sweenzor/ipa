@@ -12,12 +12,17 @@ EOF
 
 ipa()
 {
-  
+
   PATHS=$(echo $PATH | tr ':' '\n')
 
   for p in $PATHS
   do
     echo $p
+
+    if [ -d "$p" ]; then
+        echo 'path exists'
+    fi
+
   done
 
 }
