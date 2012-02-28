@@ -12,10 +12,8 @@ EOF
 
 ipa()
 {
-  echo 'hi'
+  echo $PATH | tr ':' '\n'
 }
-
-
 
 
 # show help for no arguments if stdin is a terminal
