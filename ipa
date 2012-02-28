@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Prints help text
+help()
+{
+  cat <<EOF
+
+  USAGE:
+
+EOF
+}
+
+ipa()
+{
+  echo 'hi'
+}
+
+
+
+
+# show help for no arguments if stdin is a terminal
+if [ "$1" == '-h' ]
+then
+	help
+	exit
+fi
+
+
+ipa
