@@ -13,20 +13,23 @@ EOF
 ipa()
 {
 
+  # parse $PATH into list
   PATHS=$(echo $PATH | tr ':' '\n')
 
   for p in $PATHS
   do
-    echo $p
 
+    # check if path entry exists
     if [ -d "$p" ]; then
-        echo 'path exists'
+      echo 'path exists'
     fi
+
+    # print path
+    echo $p
 
   done
 
 }
-
 
 # show help for no arguments if stdin is a terminal
 if [ "$1" == '-h' ]
@@ -35,5 +38,5 @@ then
 	exit
 fi
 
-
+# runner
 ipa
