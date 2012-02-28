@@ -12,7 +12,14 @@ EOF
 
 ipa()
 {
-  echo $PATH | tr ':' '\n'
+  
+  PATHS=$(echo $PATH | tr ':' '\n')
+
+  for p in $PATHS
+  do
+    echo $p
+  done
+
 }
 
 
