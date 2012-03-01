@@ -10,6 +10,17 @@ help()
 EOF
 }
 
+color()
+{
+printf '\033[%sm%s\033[m' "$@"
+# usage:
+# color "31;5" "string"
+# 0 default
+# 5 blink, 1 strong, 4 underlined
+# fg: 31 red,  32 green, 33 yellow, 34 blue, 35 purple, 36 cyan, 37 white
+# bg: 40 black, 41 red, 44 blue, 45 purple
+}
+
 horse()
 {
   echo "
@@ -61,23 +72,29 @@ horse()
 
 }
 
-
 ipa()
 {
-
   # parse $PATH into list
   PATHS=$(echo $PATH | tr ':' '\n')
+
+  # counter
+  n=1
 
   for p in $PATHS
   do
 
-    # check if path entry exists
+    # check if path exists
     if [ -d "$p" ]; then
-      echo 'path exists'
+      color '32;1' "[$n]  "
+    else
+      color '31;1' "[$n]  "
     fi
 
     # print path
-    echo $p
+    echo "$p "
+
+    # increment
+    (( n = n + 1 ))
 
   done
 
@@ -92,6 +109,3 @@ fi
 
 # runner
 ipa
-
-# show horse
-horse
